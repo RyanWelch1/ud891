@@ -21,6 +21,16 @@ page('/:slug', function(context) {
 
 });
 
+//if this is the first time someone is visiting site, dont move focus around. wait until they have clicked a menu items
+if (isFirstPage){
+  isFirstPage=false;
+  return;
+}
+
+//move focus to heading in new page
+newPage.querySelector('h2').focus();
+
+
 page({
   hashbang: true
 });
